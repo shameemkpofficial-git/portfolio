@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed — Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF9F6;
+    --surface: #FFFFFF;
+    --text-primary: #1C1D1B;
+    --text-secondary: #6E6E68;
+    --text-muted: #A3A199;
+    --border: #E4E2DC;
+    --accent: #3E5C50;
+    --accent-soft: #E9EEE9;
+    --radius: 6px;
+    --max-width: 760px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    padding: 32px 0 0;
+  }
+  header .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mark {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  nav {
+    display: flex;
+    gap: 28px;
+  }
+  nav a {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--text-secondary);
+    transition: color 0.15s ease;
+  }
+  nav a:hover, nav a:focus-visible { color: var(--text-primary); }
+
+  /* Hero */
+  .hero {
+    padding: 96px 0 80px;
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    margin: 0 auto 20px;
+    max-width: 580px;
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 460px;
+    margin: 0 auto 36px;
+  }
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 24px;
+    border: 3px solid var(--border);
+  }
+  .cta-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: var(--radius);
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: opacity 0.15s ease, background 0.15s ease;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--text-primary);
+    color: var(--bg);
+  }
+  .btn-primary:hover, .btn-primary:focus-visible { opacity: 0.85; }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border-color: var(--border);
+  }
+  .btn-secondary:hover, .btn-secondary:focus-visible { border-color: var(--text-secondary); }
+
+  /* Section shell */
+  section { padding: 72px 0; }
+  section.divider { border-top: 1px solid var(--border); }
+  .section-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 40px;
+  }
+
+  /* Projects */
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .project-thumb {
+    width: 100%;
+    height: 120px;
+    background: var(--accent-soft);
+    border-radius: var(--radius);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .project-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .project-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Contact */
+  .contact-grid {
+    display: flex;
+    justify-content: center;
+  }
+  .contact-info {
+    text-align: center;
+    max-width: 480px;
+  }
+  .contact-info h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin: 0 0 14px;
+  }
+  .contact-info p.desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin: 0 0 24px;
+  }
+  .contact-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  .contact-line svg { flex-shrink: 0; color: var(--text-muted); }
+  .contact-line a { text-decoration: none; }
+  .contact-line a:hover { color: var(--accent); }
+
+  .contact-action {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+  }
+  .contact-action .desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  footer {
+    padding: 40px 0 60px;
+    text-align: center;
+  }
+  footer p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* Keyword Ticker */
+  .keyword-ticker {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 16px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .ticker-content {
+    display: flex;
+    animation: scroll 60s linear infinite;
+    white-space: nowrap;
+  }
+  .keyword-item {
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 0 24px;
+    flex-shrink: 0;
+  }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  @media (max-width: 640px) {
+    .keyword-item {
+      font-size: 11px;
+      padding: 0 16px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 30px; }
+    .hero { padding: 64px 0 56px; }
+    section { padding: 56px 0; }
+    .projects { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    nav { gap: 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="mark">Mohamed Shameem</div>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <img src="../images/other/shameem.PNG" alt="Mohamed Shameem" class="profile-image">
+
+    <p class="eyebrow">Software Architect</p>
+    <h1>I build software that helps businesses run smoother</h1>
+    <p class="hero-sub">Apps, dashboards, and software connected to hardware and AI systems — from idea to launch, built around what your business actually needs.</p>
+    <div class="cta-row">
+      <a href="#contact" class="btn btn-primary">Get in touch</a>
+      <a href="#work" class="btn btn-secondary">See my work</a>
+    </div>
+  </div>
+</section>
+
+<section class="divider" id="work">
+  <div class="wrap">
+    <p class="section-label">Project</p>
+    <div class="projects">
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="../images/projects/adpg.jpeg" alt="KEZAD">
+        </div>
+        <h3>KEZAD</h3>
+        <p>A business services platform that helps users manage ePass applications, payments, documents, visa services, and other KEZAD services.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="../images/projects/lulu.jpeg" alt="LuLu Hypermarket">
+        </div>
+        <h3>LuLu Hypermarket</h3>
+        <p>A convenient online shopping platform for discovering products, placing orders, making payments, and managing deliveries.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="../images/projects/kseb.jpeg" alt="KSEB">
+        </div>
+        <h3>KSEB</h3>
+        <p>A digital platform that makes it easier for customers to manage electricity bills, payments, consumption, complaints, and other KSEB services.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="../images/projects/cve.jpeg" alt="BT Cloud Voice Express">
+        </div>
+        <h3>BT Cloud Voice Express</h3>
+        <p>A business communication app that helps users manage calls, contacts, voicemail, call forwarding, and everyday business communications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="divider" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Let's talk about your project</h2>
+        <p class="desc">Reach out directly, or send a message and I'll get back to you within a day.</p>
+        <div class="contact-line">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          <a href="mailto:shameemkpoffical@gmail.com">shameemkpoffical@gmail.com</a>
+        </div>
+        <div class="contact-line">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+971567323796">+971 56 732 3796</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 Mohamed. All rights reserved.</p>
+  </div>
+</footer>
+
+<div id="keyword-ticker" class="keyword-ticker"></div>
+
+<script src="keywords.js"></script>
+
+</body>
+</html>
